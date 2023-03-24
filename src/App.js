@@ -13,7 +13,7 @@ function App() {
       <header className="App-header">
         {toggle && <img src={logo} className="App-logo" alt="logo" />}
         <div onClick={onClick}>toggle</div>
-        <div onClick={onClick}>check</div>
+        <div onClick={onCheck}>check</div>
       </header>
     </div>
   );
