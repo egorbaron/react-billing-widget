@@ -1,7 +1,10 @@
 import './App.css';
 
 function App() {
-  const onClose = () => window?.frameElement?.remove();
+  const onClose = () => {
+    console.log("closed")
+    window?.frameElement?.remove();
+  }
   
   return (
     <div className="wrapper">
