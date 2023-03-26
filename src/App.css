@@ -9,4 +9,13 @@
   text-align: center;
   background-color: #ffffff;
   margin: auto;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: -40px;
+  top: 0;
+  padding: 5px;
+  cursor: pointer;
 }
