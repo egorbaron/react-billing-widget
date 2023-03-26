@@ -2,7 +2,7 @@ import './App.css';
 
 function App() {
   const onClose = () => {
-    console.log("closed")
+    console.log(window)
     window?.frameElement?.remove();
   }
   
@@ -24,3 +24,8 @@ function App() {
 }
 
 export default App;
+
+// const iframe = document.createElement('iframe');
+// iframe.src = 'https://test-react-widget.vercel.app/';
+// iframe.style.cssText = "height: 100% !important; width: 100% !important; position: fixed !important; border: 0px !important; inset: 0px !important; max-height: 100% important; z-index: 99999 !important";
+// document.body.appendChild(iframe);
