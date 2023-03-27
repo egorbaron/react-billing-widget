@@ -1,9 +1,19 @@
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
 
 function App() {
   const onClose = () => {
     window.top.postMessage("close-iframe", "*");
   }
+
+  useEffect(() => {
+    window.addEventListener("message", (e) => {
+      if (window.origin !== e.origin) {
+        console.log(e);
+      }
+    });
+    return () => window.removeEventListener("message", () => {})
+  }, [])
   
   return (
     <div className="wrapper">
