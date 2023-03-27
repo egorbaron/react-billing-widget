@@ -13,3 +13,4 @@ function initTestWidget () {
   };
   window.addEventListener("message", receiveMessage);
 }
+initTestWidget();
