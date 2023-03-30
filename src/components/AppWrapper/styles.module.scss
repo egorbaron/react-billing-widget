@@ -4,10 +4,13 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  padding: 15px;
 }
 
 .container {
   max-width: 390px;
+  max-height: 780px;
+  height: 100%;
   text-align: center;
   margin: auto;
   position: relative;
@@ -16,8 +19,30 @@
 
 .icon {
   position: absolute;
+  z-index: 20;
+  display: flex;
   right: -40px;
-  top: 0;
+  top: 15px;
   padding: 5px;
   cursor: pointer;
+  svg {
+    fill: #ffffff
+  }
+}
+
+@media (max-width: 490px) {
+  .wrapper {
+    padding: 0;
+  }
+  .container {
+    max-width: 100%;
+  }
+  .icon {
+    background-color: #f1f1f1;
+    padding: 7px;
+    right: 15px;
+    svg {
+      fill: #000000;
+    }
+  }
 }

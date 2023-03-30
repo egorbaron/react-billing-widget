@@ -1,20 +1,24 @@
-import { useEffect } from "react";
-import "./App.css";
+import { useLayoutEffect, useState} from "react";
 import { AppWrapper, Iframe } from "./components";
 
 function App() {
-  useEffect(() => {
-    window.addEventListener("message", (e) => {
-      if (window.origin !== e.origin) {
-        console.log(e);
-      }
-    });
-    return () => window.removeEventListener("message", () => {})
-  }, [])
+  const [loading, setLoading] = useState(false);
+  const onLoad = () => setLoading(false);
+  const listenMessage = (e) => {
+    if (window.origin !== e.origin) {
+      // console.log(e);
+    }
+  };
+    
+  useLayoutEffect(() => {
+    setLoading(true);
+    window.addEventListener("message", listenMessage);
+    return () => window.removeEventListener("message", listenMessage);
+  }, []);
   
   return (
-    <AppWrapper>
-      <Iframe url="https://app.leadpay.ru/checkout/239/"/>
+    <AppWrapper loading={loading}>
+      <Iframe onLoad={onLoad} url="https://app.leadpay.ru/checkout/239/" title="leadpay"/>
     </AppWrapper>
   );
 }
