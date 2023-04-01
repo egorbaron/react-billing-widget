@@ -3,10 +3,7 @@ import st from "./styles.module.scss";
 import { Loading } from "../Loading";
 
 export const AppWrapper = (props) => {
-  const { children, loading } = props;
-  const onClose = () => {
-    window.top.postMessage("close-iframe", "*");
-  }
+  const { children, loading, onClose } = props;
   return (
     <div className={st.wrapper}>
       <div className={st.container}>
