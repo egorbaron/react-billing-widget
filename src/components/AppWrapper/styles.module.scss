@@ -16,6 +16,9 @@
   margin: auto;
   position: relative;
   width: 100%;
+  &.loaded {
+    background-color: #fff;
+  }
 }
 
 .icon {
@@ -40,9 +43,12 @@
     max-height: 100%;
   }
   .icon {
-    background-color: #f1f1f1;
-    padding: 7px;
-    right: 15px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    position: static;
+    padding: 12px;
     svg {
       fill: #000000;
     }
