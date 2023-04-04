@@ -5,9 +5,15 @@ import { getMessageEvents } from "./utils";
 function App() {
   const [loading, setLoading] = useState(false);
   const [payUrl, setPayUrl] = useState("");
-  const onLoad = () => setLoading(false);
   const id = window.name;
   const messageEvents = getMessageEvents(id);
+
+  const onLoad = () => {
+    window.top.postMessage({
+      test_widget: { type: messageEvents.loaded },
+    }, "*");
+    setLoading(false)
+  }
   const onClose = () => {
     window.top.postMessage({
       test_widget: { type: messageEvents.closeIframe },

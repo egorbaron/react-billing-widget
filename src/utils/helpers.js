@@ -1,5 +1,6 @@
 export const getMessageEvents = (id) => ({
   getData: `get-data-${id}`,
   sendData: `send-data-${id}`,
-  closeIframe: `close-iframe-${id}`
+  closeIframe: `close-iframe-${id}`,
+  loaded: `loaded-${id}`,
 });
