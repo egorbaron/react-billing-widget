@@ -18,9 +18,24 @@
       const noScrollClass = `noscroll-${id}`;
       document.body.classList.add(noScrollClass);
 
+      const style = document.querySelector(`style#style-${id}`);
+      if (!style) {
+        document.head.insertAdjacentHTML("beforeend", `
+          <style id=style-${id}>
+            .${noScrollClass} {
+              overflow: hidden;
+            }
+            @keyframes ${spinKeyframe} {
+              to {
+                -webkit-transform: rotate(360deg);
+              }
+            };
+          </style>
+        `);
+      };
+
       const loadingDiv = document.createElement('div');
       const spinner = document.createElement('div');
-
       loadingDiv.style.cssText = `
       height: 100% !important; 
       width: 100% !important; 
@@ -102,24 +117,6 @@
   const loader = (win, script) => {
     const instanceLoader = win[INSTANCE_NAME];
     const id = guid();
-    const spinKeyframe = `spin-keyframe-${id}`;
-    const noScrollClass = `noscroll-${id}`
-
-    const style = document.querySelector(`style#style-${id}`);
-    if (!style) {
-      document.head.insertAdjacentHTML("beforeend", `
-      <style id=style-${id}>
-        .${noScrollClass} {
-          overflow: hidden;
-        }
-        @keyframes ${spinKeyframe} {
-          to {
-            -webkit-transform: rotate(360deg);
-          }
-        };
-      </style>
-    `);
-    };
 
     if (instanceLoader?.q) {
       // async init
